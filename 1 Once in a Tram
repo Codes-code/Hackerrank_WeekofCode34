@@ -1,0 +1,45 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int onceInATram(int x) {
+
+        while(true)
+        {
+        int bigger=x/1000;
+        int later=x%1000;
+            
+        
+        int z=bigger%10;//System.out.println(z+"  4");
+        int m=bigger/100;//System.out.println(m+"  5");
+        int y=(bigger%100)/10;  //System.out.println(y+"  6");
+        
+            int sum1=m+y+z;//System.out.println(sum1+"  7");
+           
+            
+        int c=later%10;//System.out.println(c+"  9");
+        int a=later/100;//System.out.println(a+"  10");
+        int b=(later%100)/10; //System.out.println(b+"  11");
+            
+            int sum2=a+b+c;//System.out.println(sum2+"  12");
+        
+            if(sum1==sum2)
+              {break;}
+            else{x++;}
+        }
+        //System.out.println(x+"  13");
+        return x;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int x = in.nextInt();
+        x++;
+        int result = onceInATram(x);
+        System.out.println(result);
+    }
+}
