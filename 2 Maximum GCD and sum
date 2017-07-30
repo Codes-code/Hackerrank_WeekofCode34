@@ -1,0 +1,75 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class blabla2
+{
+    //-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=--=-=-=--=- Finding GCD
+    
+    static int gcd(int a, int b)
+    {
+        if(b==0)
+            return a;
+        return gcd(b,a%b);
+    }
+    //-=-=-=-=-=--=-=-=-===-==-=--=--=---=-=-=-=-=-=--=-=  Iterating and Taking Sum
+    
+    static int Iterate(int[] A, int[] B, int n) 
+    {   int greatest=0; int sum=0;int bo=0;
+        for(int x=0; x<n; x++)
+        { if(A[x]!=-9999999)
+        {
+            for(int y=0; y<n; y++)
+               {   if(B[x]!=-9999999)
+                   bo=gcd(A[x], B[y]);
+                   if(bo>greatest)
+                   {   greatest=bo;
+                       sum=A[x]+B[y];
+                   }
+                if(bo==greatest && sum<A[x]+B[y])
+                {
+                    sum=A[x]+B[y];
+                }
+               }
+        }
+        }
+        
+        
+        return sum;
+    }
+    //-=-=-=-=-=-=-=-=-=-=-=-=-=-===-=-=-=-=---=-=--=--=-=  Taking Input 
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        
+        int[] A = new int[n];
+        A[0]=in.nextInt();
+        for(int i=1;i<n;i++){
+            A[i]=in.nextInt();
+        for(int j=0; j<i; j++)
+        {if(A[i]==A[j])
+        {
+            A[i]=-9999999;
+        }
+        }
+        }
+        
+        int[] B = new int[n];
+        B[0]=in.nextInt();
+        for(int i=1;i<n;i++){
+            B[i]=in.nextInt();
+        for(int j=0; j<i; j++)
+        {if(B[i]==B[j])
+        {
+            B[i]=-9999999;
+        }
+        }
+        }
+        
+        int res = Iterate(A, B, n);
+        System.out.println(res);
+    }
+}
